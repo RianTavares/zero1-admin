@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "futevolei_atletas",
+  "info": {
+    "singularName": "futevolei-atleta",
+    "pluralName": "futevolei-atletas",
+    "displayName": "Futevolei Atleta",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 20
+    },
+    "profile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "sex": {
+      "type": "enumeration",
+      "enum": [
+        "masculino",
+        "feminino"
+      ]
+    },
+    "tournaments": {
+      "type": "integer"
+    },
+    "points": {
+      "type": "integer"
+    },
+    "groups": {
+      "type": "enumeration",
+      "enum": [
+        "iniciante-a",
+        "iniciante-b",
+        "intermediario-a",
+        "intermediario-b",
+        "avancado"
+      ]
+    }
+  }
+}

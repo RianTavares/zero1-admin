@@ -362,41 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiPlayerPlayer extends Schema.CollectionType {
-  collectionName: 'players';
-  info: {
-    singularName: 'player';
-    pluralName: 'players';
-    displayName: 'Player';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Name: Attribute.String;
-    tournaments: Attribute.Integer;
-    points: Attribute.Integer;
-    profile: Attribute.Media;
-    groups: Attribute.Enumeration<['iniciante', 'intermediario', 'avancado']>;
-    sex: Attribute.Enumeration<['female', 'male']>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::player.player',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::player.player',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -823,6 +788,93 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiBeachAtletaBeachAtleta extends Schema.CollectionType {
+  collectionName: 'beach_atletas';
+  info: {
+    singularName: 'beach-atleta';
+    pluralName: 'beach-atletas';
+    displayName: 'Beach Atleta';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
+    profile: Attribute.Media;
+    sex: Attribute.Enumeration<['masculino', 'feminino']>;
+    tournaments: Attribute.Integer;
+    points: Attribute.Integer;
+    groups: Attribute.Enumeration<['iniciante', 'intermediario', 'avancado']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::beach-atleta.beach-atleta',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::beach-atleta.beach-atleta',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFutevoleiAtletaFutevoleiAtleta
+  extends Schema.CollectionType {
+  collectionName: 'futevolei_atletas';
+  info: {
+    singularName: 'futevolei-atleta';
+    pluralName: 'futevolei-atletas';
+    displayName: 'Futevolei Atleta';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 20;
+      }>;
+    profile: Attribute.Media;
+    sex: Attribute.Enumeration<['masculino', 'feminino']>;
+    tournaments: Attribute.Integer;
+    points: Attribute.Integer;
+    groups: Attribute.Enumeration<
+      [
+        'iniciante-a',
+        'iniciante-b',
+        'intermediario-a',
+        'intermediario-b',
+        'avancado'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::futevolei-atleta.futevolei-atleta',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::futevolei-atleta.futevolei-atleta',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -833,7 +885,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::player.player': ApiPlayerPlayer;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -842,6 +893,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::beach-atleta.beach-atleta': ApiBeachAtletaBeachAtleta;
+      'api::futevolei-atleta.futevolei-atleta': ApiFutevoleiAtletaFutevoleiAtleta;
     }
   }
 }

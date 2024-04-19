@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "beach_atletas",
+  "info": {
+    "singularName": "beach-atleta",
+    "pluralName": "beach-atletas",
+    "displayName": "Beach Atleta",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 20
+    },
+    "profile": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "sex": {
+      "type": "enumeration",
+      "enum": [
+        "masculino",
+        "feminino"
+      ]
+    },
+    "tournaments": {
+      "type": "integer"
+    },
+    "points": {
+      "type": "integer"
+    },
+    "groups": {
+      "type": "enumeration",
+      "enum": [
+        "iniciante",
+        "intermediario",
+        "avancado"
+      ]
+    }
+  }
+}
